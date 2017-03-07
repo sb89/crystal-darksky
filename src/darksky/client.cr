@@ -11,12 +11,15 @@ module Darksky
 
     def get_forecast(latitude, longitude, lang = @lang, units = @units, extend_hourly = @extend_hourly, exclude = @exclude)
       url = "#{BASE_URL}/#{@key}/#{latitude},#{longitude}"
-      url += "?lang=" + lang.text
-      url += "&units=" + units.text
-      url += "&extend=hourly" if extend_hourly
-      url += "&exclude=" + exclude.join(",") { |i| i.text } if exclude.size > 0
 
-      response = HTTP::Client.get(url)
+      params = HTTP::Params.build do |p|
+        p.add "lang", lang.text
+        p.add "units", units.text
+        p.add "extend", "hourly" if extend_hourly
+        p.add "exclude", exclude.join(",") { |i| i.text } if exclude.size > 0
+      end
+
+      response = HTTP::Client.get("#{url}?#{params}")
 
       case response.status_code
       when 200

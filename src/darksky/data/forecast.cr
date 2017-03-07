@@ -4,12 +4,12 @@ module Darksky
       latitude:          Float64,
       longitude:         Float64,
       timezone:          String,
-      currently:         {type: Datapoint, nilable: true},
-      minutely:          {type: Datablock, nilable: true},
-      hourly:            {type: Datablock, nilable: true},
-      daily:             {type: Datablock, nilable: true},
-      alerts:            {type: Array(Alert), nilable: true},
-      flags:             {type: Flags, nilable: true},
+      currently:         Datapoint?,
+      minutely:          Datablock?,
+      hourly:            Datablock?,
+      daily:             Datablock?,
+      alerts:            Array(Alert)?,
+      flags:             Flags?,
     })
   end
 end

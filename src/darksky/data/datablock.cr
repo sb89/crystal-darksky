@@ -3,7 +3,7 @@ module Darksky
     JSON.mapping({
       data:             Array(Datapoint),
       summary:          String,
-      icon:             {type: String, nilable: true}
+      icon:             String?
     })
   end
 end

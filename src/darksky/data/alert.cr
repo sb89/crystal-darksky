@@ -2,7 +2,7 @@ module Darksky
   class Alert
     JSON.mapping({
       description:          String,  
-      expires:              {type: Int64, nilable: true},
+      expires:              Int64?,
       regions:              Array(String),
       severity:             String,
       time:                 Int64,   

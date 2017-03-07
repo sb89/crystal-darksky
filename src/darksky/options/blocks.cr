@@ -2,6 +2,7 @@ module Darksky
   enum Blocks
     Currently
     Minutely
+    Hourly
     Daily
     Alerts
     Flags
