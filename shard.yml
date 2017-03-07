@@ -1,0 +1,9 @@
+name: darksky
+version: 0.1.0
+
+authors:
+  - Steven <s.blake.08@aberdeen.ac.uk>
+
+crystal: 0.21.0
+
+license: MIT
