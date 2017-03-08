@@ -19,7 +19,7 @@ dependencies:
 ```crystal
 require "darksky"
 
-client = Darksky.new("api key here....")
+client = Darksky.new("api key...")
 
 forecast = client.get_forecast("38.385939", "-97.43004")
 
@@ -27,6 +27,17 @@ forecast.currently.try do |c|
   p "The temperature is #{c.temperature}!"
 end
 
+```
+Additional options can be specified when calling ```Darksky.new(...)```. These options will be used for each API request.
+
+```crystal
+client = Darksky.new("api key...", lang: Darksky::Language::NL, units: Darksky::Units::SI, extend_hourly: true, exclude: [Darksky::Blocks::Minutely, Darksky::Blocks::Daily] )
+```
+
+Additional options can also be specified when calling ```get_forecast(...)```. Any options specified here will override the options specified in the ```new()``` method for this request.
+
+```crystal
+client.get_forecast("38.385939", "-97.43004", lang: Darksky::Language::NL, units: Darksky::Units::SI, extend_hourly: true, exclude: [Darksky::Blocks::Minutely, Darksky::Blocks::Daily] )
 ```
 
 ## Contributing
