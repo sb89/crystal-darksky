@@ -5,8 +5,7 @@ module Darksky
   class Client
     BASE_URL = "https://api.darksky.net/forecast"
 
-    def initialize(key : String, @lang : Language, @units : Units, @extend_hourly : Bool, @exclude : Array(Blocks))
-      @key = key
+    def initialize(@key : String, @lang : Language, @units : Units, @extend_hourly : Bool, @exclude : Array(Blocks)?)
     end
 
     def get_forecast(latitude, longitude, lang = @lang, units = @units, extend_hourly = @extend_hourly, exclude = @exclude)
@@ -16,7 +15,7 @@ module Darksky
         p.add "lang", lang.text
         p.add "units", units.text
         p.add "extend", "hourly" if extend_hourly
-        p.add "exclude", exclude.join(",") { |i| i.text } if exclude.size > 0
+        p.add "exclude", exclude.join(",") { |i| i.text } if exclude && exclude.size > 0
       end
 
       response = HTTP::Client.get("#{url}?#{params}")
