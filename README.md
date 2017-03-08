@@ -1,4 +1,4 @@
-# darksky
+# crystal-darksky
 
 Dark Sky API wrapper in Crystal.
 
