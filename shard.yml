@@ -1,6 +1,11 @@
 name: darksky
 version: 0.1.0
 
+development_dependencies:
+  webmock:
+    github: manastech/webmock.cr
+    branch: master
+
 authors:
   - Steven <s.blake.08@aberdeen.ac.uk>
 
