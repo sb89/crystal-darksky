@@ -18,9 +18,16 @@ dependencies:
 
 ```crystal
 require "darksky"
-```
 
-TODO: Write usage instructions here
+client = Darksky.new("api key here....")
+
+forecast = client.get_forecast("38.385939", "-97.43004")
+
+forecast.currently.try do |c|
+  p "The temperature is #{c.temperature}!"
+end
+
+```
 
 ## Contributing
 
