@@ -1,6 +1,8 @@
 # darksky
 
-TODO: Write a description here
+Dark Sky API wrapper in Crystal.
+
+Documentation: https://darksky.net/dev/docs
 
 ## Installation
 
@@ -19,10 +21,6 @@ require "darksky"
 ```
 
 TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
 
 ## Contributing
 
