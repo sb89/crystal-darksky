@@ -9,7 +9,7 @@ describe Darksky::Client do
             WebMock.stub(:any, "https://api.darksky.net/forecast/apikey/37,-122?lang=en&units=auto").
               to_return(status: 404)
 
-            Darksky::Client.new("apikey").get_forecast("37", "-122")
+            Darksky.new("apikey").get_forecast("37", "-122")
           end
         end
       end
@@ -22,7 +22,7 @@ describe Darksky::Client do
             WebMock.stub(:any, "https://api.darksky.net/forecast/apikey/37,-122?lang=en&units=auto").
               to_return(status: 400)
 
-            Darksky::Client.new("apikey").get_forecast("37", "-122")
+            Darksky.new("apikey").get_forecast("37", "-122")
           end
         end
       end
@@ -36,7 +36,7 @@ describe Darksky::Client do
           with(query: {"lang" => lang.text, "units" => "auto"}).
           to_return(body: %({"latitude": 0, "longitude":0, "timezone":""}))
 
-        Darksky::Client.new("apikey").get_forecast("37", "-122", lang: lang)
+        Darksky.new("apikey").get_forecast("37", "-122", lang: lang)
       end
     end
 
@@ -48,7 +48,7 @@ describe Darksky::Client do
           with(query: {"lang" => "en", "units" => units.text}).
           to_return(body: %({"latitude": 0, "longitude":0, "timezone":""}))
 
-        Darksky::Client.new("apikey").get_forecast("37", "-122", units: units)
+        Darksky.new("apikey").get_forecast("37", "-122", units: units)
       end
     end
 
@@ -58,7 +58,7 @@ describe Darksky::Client do
           with(query: {"lang" => "en", "units" => "auto", "extend" => "hourly"}).
           to_return(body: %({"latitude": 0, "longitude":0, "timezone":""}))
 
-        Darksky::Client.new("apikey").get_forecast("37", "-122", extend_hourly: true)
+        Darksky.new("apikey").get_forecast("37", "-122", extend_hourly: true)
       end
     end
 
@@ -70,7 +70,7 @@ describe Darksky::Client do
           with(query: {"lang" => "en", "units" => "auto", "exclude" => exclude.join(",") { |i| i.text } }).
           to_return(body: %({"latitude": 0, "longitude":0, "timezone":""}))
 
-        Darksky::Client.new("apikey").get_forecast("37", "-122", exclude: exclude)
+        Darksky.new("apikey").get_forecast("37", "-122", exclude: exclude)
       end
     end
   end

@@ -5,7 +5,7 @@ module Darksky
   class Client
     BASE_URL = "https://api.darksky.net/forecast"
 
-    def initialize(key : String, @lang = Language::EN, @units = Units::Auto, @extend_hourly = false, @exclude = Array(Blocks).new)
+    def initialize(key : String, @lang : Language, @units : Units, @extend_hourly : Bool, @exclude : Array(Blocks))
       @key = key
     end
 
