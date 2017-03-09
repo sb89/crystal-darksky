@@ -22,7 +22,7 @@ module Darksky
 
       case response.status_code
       when 200
-        Darksky::Forecast.from_json(response.body)
+        Forecast.from_json(response.body)
       when 404
         raise Exception.new("Received 404 status. Perhaps your API key is incorrect?")
       else
