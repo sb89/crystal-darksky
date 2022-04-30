@@ -1,5 +1,4 @@
 # crystal-darksky
-[![Build Status](https://img.shields.io/travis/sb89/crystal-darksky/master.svg)](https://travis-ci.org/sb89/crystal-darksky)
 
 Dark Sky API wrapper in Crystal.
 
