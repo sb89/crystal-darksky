@@ -1,15 +1,18 @@
+require "json"
+
 module Darksky
   class Forecast
-    JSON.mapping({
-      latitude:          Float64,
-      longitude:         Float64,
-      timezone:          String,
-      currently:         Datapoint?,
-      minutely:          Datablock?,
-      hourly:            Datablock?,
-      daily:             Datablock?,
-      alerts:            Array(Alert)?,
-      flags:             Flags?,
-    })
+    include JSON::Serializable
+
+    property latitude : Float64
+    property longitude : Float64
+    property timezone : String
+    property currently : Datapoint?
+    property minutely : Datapoint?
+    property hourly : Datapoint?
+    property daily : Datapoint?
+    property alerts : Array(Alert)?
+    property flags : Flags?
+
   end
 end

@@ -1,9 +1,13 @@
+require "json"
+
 module Darksky
   class Flags
-    JSON.mapping({
-      darkysky_unavailable:   {type: String?, key: "darksky-unavailable"},
-      sources:                Array(String),
-      units:                  String
-    })  
+    include JSON::Serializable
+
+    @[JSON::Field(key: "darksky-unavailable")]
+    property darkysky_unavailable : String?
+    property sources : Array(String)
+    property units : String
+
   end
 end

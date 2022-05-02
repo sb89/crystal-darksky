@@ -1,5 +1,5 @@
 name: darksky
-version: 0.1.0
+version: 0.2.0
 
 development_dependencies:
   webmock:
@@ -9,6 +9,6 @@ development_dependencies:
 authors:
   - Steven <s.blake.08@aberdeen.ac.uk>
 
-crystal: 0.21.0
+crystal: 1.4.1
 
 license: MIT

@@ -1,38 +1,95 @@
+require "json"
+
 module Darksky
   class Datapoint
-    JSON.mapping({
-      apparent_temperature:           {type: Float64?, key: "apparentTemperature"},
-      apparent_temperature_max:       {type: Float64?, key: "apparentTemperatureMax"},
-      apparent_temperature_max_time:  {type: Int64?, key: "apparentTemperatureMaxTime"},
-      apparent_temperature_min:       {type: Float64?, key: "apparentTemperatureMin"},
-      apparent_temperature_min_time:  {type: Int64?, key: "apparentTemperatureMinTime"},
-      cloud_cover:                    {type: Float64?, key: "cloudCover"},
-      dew_point:                      {type: Float64?, key: "dewPoint"},
-      humidity:                       Float64?,
-      icon:                           String?,
-      moon_phase:                     {type: Float64?, key: "moonPhase"},
-      nearest_storm_bearing:          {type: Float64?, key: "nearestStormBearing"},
-      nearest_storm_distance:         {type: Float64?, key: "nearestStormDistance"},
-      ozone:                          Float64?,
-      precip_accumulation:            {type: Float64?, key: "precipAccumulation"},
-      precip_intensity:               {type: Float64?, key: "precipIntensity"},
-      precip_intensity_max:           {type: Float64?, key: "precipIntensityMax"},
-      precip_intensity_max_time:      {type: Int64?, key: "precipIntensityMaxTime"},
-      precip_probability:             {type: Float64?, key: "precipProbability"},
-      precip_type:                    {type: String?, key: "precipType"},
-      pressure:                       Float64?,
-      summary:                        String?,
-      sunrise_time:                   {type: Int64?, key: "sunriseTime"},
-      sunset_time:                    {type: Int64?, key: "sunsetTime"},
-      temperature:                    Float64?,
-      temperature_max:                {type: Float64?, key: "temperatureMax"},
-      temperature_max_time:           {type: Int64?, key: "temperatureMaxTime"},
-      temperature_min:                {type: Float64?, key: "temperatureMin"},
-      temperature_min_time:           {type: Int64?, key: "temperatureMinTime"},
-      time:                           Int64,
-      visibility:                     Float64?,
-      wind_bearing:                   {type: Float64?, key: "windBearing"},
-      wind_speed:                     {type: Float64?, key: "windSpeed"}
-    })  
+    include JSON::Serializable
+
+    @[JSON::Field(key: "apparentTemperature")]
+    property apparent_temperature : Float64?
+
+    @[JSON::Field(key: "apparentTemperatureMax")]
+    property apparent_temperature_max : Float64?
+
+    @[JSON::Field(key: "apparentTemperatureMaxTime")]
+    property apparent_temperature_max_time : Int64?
+
+    @[JSON::Field(key: "apparentTemperatureMin")]
+    property apparent_temperature_min : Float64?
+
+    @[JSON::Field(key: "apparentTemperatureMinTime")]
+    property apparent_temperature_min_time : Int64?
+
+    @[JSON::Field(key: "cloudCover")]
+    property cloud_cover : Float64?
+
+    @[JSON::Field(key: "cloudewPointdCover")]
+    property dew_point : Float64?
+
+    property humidity : Float64?
+
+    property icon : String?
+
+    @[JSON::Field(key: "moonPhase")]
+    property moon_phase : Float64?
+
+    @[JSON::Field(key: "nearestStormBearing")]
+    property nearest_storm_bearing : Float64?
+
+    @[JSON::Field(key: "nearestStormDistance")]
+    property nearest_storm_distance : Float64?
+
+    property ozone : Float64?
+
+    @[JSON::Field(key: "precipAccumulation")]
+    property precip_accumulation : Float64?
+
+    @[JSON::Field(key: "precipIntensity")]
+    property precip_intensity : Float64?
+
+    @[JSON::Field(key: "precipIntensityMax")]
+    property precip_intensity_max : Float64?
+
+    @[JSON::Field(key: "precipIntensityMaxTime")]
+    property precip_intensity_max_time : Int64?
+
+    @[JSON::Field(key: "precipProbability")]
+    property precip_probability : Float64?
+
+    @[JSON::Field(key: "precipType")]
+    property precip_type : String?
+
+    property pressure : Float64?
+
+    property summary : String?
+
+    @[JSON::Field(key: "sunriseTime")]
+    property sunrise_time : Int64?
+
+    @[JSON::Field(key: "sunsetTime")]
+    property sunset_time : Int64?
+
+    property temperature : Float64?
+
+    @[JSON::Field(key: "temperatureMax")]
+    property temperature_max : Float64?
+
+    @[JSON::Field(key: "temperatureMaxTime")]
+    property temperature_max_time : Int64?
+
+    @[JSON::Field(key: "temperatureMin")]
+    property temperature_min : Float64?
+
+    @[JSON::Field(key: "temperatureMinTime")]
+    property temperature_min_time : Int64?
+
+    property time : Int64?
+
+    property visibility : Float64?
+
+    @[JSON::Field(key: "windBearing")]
+    property wind_bearing : Float64?
+
+    @[JSON::Field(key: "windSpeed")]
+    property wind_speed : Float64?
   end
 end

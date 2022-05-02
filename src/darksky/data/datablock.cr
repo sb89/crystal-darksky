@@ -1,9 +1,11 @@
+require "json"
+
 module Darksky
   class Datablock
-    JSON.mapping({
-      data:             Array(Datapoint),
-      summary:          String,
-      icon:             String?
-    })
+    include JSON::Serializable
+
+    property data : Array(Datapoint)
+    property summary : String
+    property icon : String?
   end
 end
